@@ -1,0 +1,13 @@
+wordpress_db:
+  image: mariadb
+  environment:
+     MYSQL_ROOT_PASSWORD: example
+phpadmin:
+  image: corbinu/docker-phpmyadmin
+  links:
+  - wordpress_db:mysql
+  ports:
+  - 9090:80
+  environment:
+     MYSQL_username: root
+     MYSQL_ROOT_PASSWORD: example
